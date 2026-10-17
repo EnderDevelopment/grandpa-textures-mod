@@ -1,0 +1,39 @@
+plugins {
+    id 'java'
+    id 'maven-publish'
+}
+
+group 'com.markenmukina90'
+version '1.0'
+
+repositories {
+    mavenCentral()
+    maven {
+        url 'https://maven.minecraftforge.net'
+    }
+}
+
+dependencies {
+    implementation fg.deobf('net.minecraftforge:forge:1.26.31.1')
+    implementation 'net.minecraftforge:minecraft:1.26.31.1'
+}
+
+processResources {
+    inputs.property 'version', project.version
+    from(sourceSets.main.resources.srcDirs) {
+        include '**/*.json'
+        include '**/*.png'
+        include '**/*.lang'
+    }
+    into 'build/resources/main'
+}
+
+jar {
+    archiveFileName = "GrandpaTexturesMod-${version}.jar"
+    from {
+        configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
+    }
+    manifest {
+        attributes 'Main-Class': 'net.minecraftforge.fml.loading.FMLLoader'
+    }
+}

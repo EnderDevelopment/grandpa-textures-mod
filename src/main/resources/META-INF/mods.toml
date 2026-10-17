@@ -1,0 +1,23 @@
+[[mods]]
+modId="grandpatexturesmod"
+version="${version}"
+displayName="Grandpa Textures Mod"
+credits="MarkenMukina90"
+authors="MarkenMukina90"
+description='''
+Fixes GRANDPA textures in Minecraft Bedrock 1.26.31.1.
+'''
+
+[[dependencies.grandpatexturesmod]]
+modId="forge"
+mandatory=true
+versionRange="[1.26.31.1,)"
+ordering="NONE"
+side="BOTH"
+
+[[dependencies.grandpatexturesmod]]
+modId="minecraft"
+mandatory=true
+versionRange="[1.26.31.1]"
+ordering="NONE"
+side="BOTH"
